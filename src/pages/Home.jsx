@@ -13,14 +13,14 @@ export const Home = () => {
 		let response = await fetch('https://www.swapi.tech/api/people',
 		{method: 'GET'})
 		let data = await response.json()
-		setCharacters(data.results);
+		dispatch({type: 'get_characters', payload: data.results});
+
 		
-
-
   } catch (error){
 	console.log(error);
   }
   }
+  console.log("esto es mi store", store.characters);
 
 useEffect(() => {
 	getCharacters()
@@ -29,16 +29,15 @@ useEffect(() => {
 
 console.log(characters)
 
-
 	return (
 		<div className="text-center mt-5">
 			<h1>CHARACTERS</h1>
 			<div>
-				{characters.length == 0 ? ( 
+				{store.characters.length == 0 ? ( 
 					<p>Cargando</p>
 					 ) : (
 					<div> 
-						{characters.map((item) => (
+						{store.characters.map((item) => (
 							<CardCharacters name={item.name} id={item.uid} key={item.uid} />
 						))}
 					</div>

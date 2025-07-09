@@ -9,7 +9,7 @@ export const Detalles = () => {
     return (
         <div className="text-center mt-5">
             <h1>Detalles{id}</h1>
-          
+        
         </div>
     );
 }; 

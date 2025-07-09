@@ -1,0 +1,54 @@
+CUAL ES EL PRIMER PASO PARA UTILIZAR EL ESTADO GLOBAL: 
+-import useGlobalReducer en el componente
+-declaramos esa variable "const {store, dispatch} = useGlobalReducer()"
+-creamos la funcion que me va a hacer el fetch 
+" async function getCharacters(){
+	try{
+		let response = await fetch('https://www.swapi.tech/api/people',
+		{method: 'GET'})
+		let data = await response.json()
+		dispatch({type: 'get_characters', payload: data.results});
+
+		
+  } catch (error){
+	console.log(error);
+  }
+} "
+
+-en el initialStore declaramos nuestros estados que debe seguir un formato tipo objeto :"export const initialStore=()=>{
+
+  return{
+    characters:[],
+    addFav:[]
+  }
+}"
+
+- creamos el CASE que se va a encargar de almacenar los datos 
+"case 'get_characters':    //se escribe con snake_case //
+
+      return {
+        ...store,
+       characters: action.payload
+      };"
+
+- verificar que me lleguen los casos con el console.log() => "  console.log("esto es mi store", store.characters); "
+- una vez que este OK , utilizo .map() de "store.characters.map()" => "
+return (
+		<div className="text-center mt-5">
+			<h1>CHARACTERS</h1>
+			<div>
+				{store.characters.length == 0 ? ( 
+					<p>Cargando</p>
+					 ) : (
+					<div> 
+						{store.characters.map((item) => (
+							<CardCharacters name={item.name} id={item.uid} key={item.uid} />
+						))}
+					</div>
+						 )}
+			 
+			</div>
+		</div>
+	);"
+
+- utilizaré el GET con estado global para traerme los planetas, personajes, vehiculos...
