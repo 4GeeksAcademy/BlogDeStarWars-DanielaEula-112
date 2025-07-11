@@ -52,3 +52,48 @@ return (
 	);"
 
 - utilizaré el GET con estado global para traerme los planetas, personajes, vehiculos...
+
+
+//grid de las cards: 
+
+<div className="card">
+  <div className="card-body">
+    <h1 className="card-title">CHARACTERS</h1>
+    <div className="row">
+      {store.characters.length == 0 ? (
+        <p>Cargando</p>
+      ) : (
+        store.characters.map((item) => (
+          <div className="col-md-4" key={item.uid}>
+            <CardCharacters name={item.name} id={item.uid} />
+          </div>
+        ))
+      )}
+    </div>
+  </div>
+</div>
+
+
+//Preguntas para continuar:
+- ¿como hago para traerme las imagenes de cada uno de los personajes, vehiculos, planetas?
+- ¿ como hago para que "learn more" me lleve a la vista "detalles"?
+- ¿ como traer a detalles... 
+
+url:
+https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/characters/1.jpg
+
+planeta tattoine: 
+
+<img 
+  src={imagen} 
+  onError={(e) => { e.target.src = rigoImageUrl; }} 
+  className="card-img-top" 
+  alt="..." 
+/>
+
+***El evento onError es un evento que se dispara cuando ocurre un error al cargar un recurso, como una imagen
+https://static.wikia.nocookie.net/ptstarwars/images/8/82/Tatooine-TOR.jpg/revision/latest?cb=20160320020409
+
+··· VISTA detalles ...
+... Traer info en detalles para cada personaje, vehiculo, planeta...
+... contador de favoritos a medida que se van agregando ...

@@ -64,50 +64,49 @@ export const Home = () => {
 
 	return (
 		<><div className="card">
-			<div className="card-body">
-				<h1 className="card-title">CHARACTERS</h1>
-				<div>
+			<div className="card-body bg-dark">
+				<h1 className="card-title font-monospace text-light">CHARACTERS</h1>
+				<div className="row">
 					{store.characters.length == 0 ? (
 						<p>Cargando</p>
 					) : (
-						<div>
-							{store.characters.map((item) => (
-								<CardCharacters name={item.name} id={item.uid} key={item.uid} />
-							))}
-						</div>
-					)}
-
+						store.characters.map((item) => (
+							<div className="col-md-4" key={item.uid}>
+								<CardCharacters name={item.name} id={item.uid} url={item.url} />
+							</div>
+							))
+						)}
 				</div>
 			</div>
 		</div><div className="card">
-				<div className="card-body">
-					<h1 className="card-title">PLANETS</h1>
-					<div>
+				<div className="card-body bg-dark">
+					<h1 className="card-title font-monospace text-light">PLANETS</h1>
+					<div className="row">
 						{store.planets.length == 0 ? (
 							<p>cargando</p>
 						) : (
-							<div>
-								{store.planets.map((i) => (
-									<CardCharacters name={i.name} id={i.uid} />
-								))}
-							</div>
-						)}
+							store.planets.map((i) => (
+								<div className="col-md-4" key={i.uid}>
+									<CardCharacters name={i.name} id={i.uid} url={i.url} />
+								</div>
+								))	
+							)}
 					</div>
 					<a href="#" className="btn btn-primary">Go somewhere</a>
 				</div>
 			</div>
 			<div className="card">
-				<div className="card-body">
-					<h1 className="card-title">VEHICLES</h1>
-					<div>
+				<div className="card-body bg-dark">
+					<h1 className="card-title font-monospace text-light">VEHICLES</h1>
+					<div className="row">
 						{store.vehicles.length == 0 ? (
 							<p>cargando</p>
 						) : (
-							<div>
-								{store.vehicles.map((e) => (
-									<CardCharacters name={e.name} id={e.uid} />
-								))}
-							</div>
+						store.vehicles.map((e) => (
+								<div className="col-md-4" key={e.uid}>
+									<CardCharacters name={e.name} id={e.uid} url={e.url} />
+								</div>
+							))
 						)}
 					</div>
 					

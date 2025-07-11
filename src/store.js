@@ -1,12 +1,11 @@
-import { CardCharacters } from "./components/CardCharacters";
 
 export const initialStore=()=>{
 
   return{
     characters:[],
-    addFav:[],
     planets:[],
-    vehicles:[]
+    vehicles:[],
+    addFav:[]
   }
 }
 
@@ -31,6 +30,18 @@ export default function storeReducer(store, action = {}) {
         ...store,
         vehicles: action.payload
       };
+    
+    case 'add_fav':
+      return{
+        ...store,
+        addFav: [...store.addFav, action.payload]
+      };
+
+    case 'remove_fav':
+      return{
+        ...store,
+        addFav: store.addFav.filter( fav => fav.id !== action.payload.id )
+      };  
 
     default:
       throw Error('Accion desconocida');
