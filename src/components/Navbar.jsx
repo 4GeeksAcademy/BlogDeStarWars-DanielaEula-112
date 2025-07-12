@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import storeReducer from "../store";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { useState } from "react";
 
 export const Navbar = () => {
 	const { store, dispatch } = useGlobalReducer();
+	
 
 	const removeFav = (id) => {
 		dispatch({ type: 'remove_fav', payload: { id: id } });
@@ -26,8 +28,8 @@ export const Navbar = () => {
 						<ul className="navbar-nav">
 							<li className="nav-item dropdown">
 								<a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									Favoritos 
-								</a> ACA EL CONTADOR
+									Favoritos ({store.addFav.length})
+								</a>
 								
 								<ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 									{store.addFav.map((fav, index) => (
