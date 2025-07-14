@@ -13,21 +13,26 @@ export const Navbar = () => {
 
 	return (
 
-		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+		<nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{
+      backgroundImage: 'url(https://e0.pxfuel.com/wallpapers/804/170/desktop-wallpaper-star-wars-star-background-best-background-star-wars-universe.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
 			<div className="container d-flex justify-content-between">
-				<div className="col-md-2">
-					<a className="navbar-brand" href="#">
-						<img src="https://static.wikia.nocookie.net/starwars/images/c/cc/Star-wars-logo-new-tall.jpg/revision/latest?cb=20190313021755" style={{ maxWidth: '150px', height: '80px' }} />
+				<div className="d-flex align-items-center">
+					<a className="navbar-brand">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1280px-Star_Wars_Logo.svg.png" style={{ maxWidth: '150px', height: '80px' }} />
 					</a>
 				</div>
-				<div className="col-md-4 ml-auto">
+				<div className="d-flex align-items-center">
 					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
 						<span className="navbar-toggler-icon"></span>
 					</button>
-					<div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+					<div className="collapse navbar-collapse m-0" id="navbarNavDarkDropdown">
 						<ul className="navbar-nav">
 							<li className="nav-item dropdown">
-								<a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color: '#FFE81F'}}>
 									Favoritos ({store.addFav.length})
 								</a>
 								

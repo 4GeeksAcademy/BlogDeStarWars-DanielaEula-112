@@ -6,13 +6,13 @@ import { useState, useEffect } from "react";
 //importar navLink {link}
 import { Link } from "react-router-dom";
 
-export const CardCharacters = ({name, id, url, character} ) => {
-    const {store, dispatch} = useGlobalReducer()
-    
+export const CardCharacters = ({ name, id, url, properties }) => {
+    const { store, dispatch } = useGlobalReducer()
 
-    function addFav () {
-        dispatch({type: 'add_fav', payload:{name:name,id:id}})
-       
+
+    function addFav() {
+        dispatch({ type: 'add_fav', payload: { name: name, id: id } })
+
     };
 
     function cardImg(url) {
@@ -27,26 +27,38 @@ export const CardCharacters = ({name, id, url, character} ) => {
         else {
             return "not found";
         }
-    } 
+    }
     const imagen = cardImg(url) // "Imagen not found" ? cardImg(url) : "https://static.wikia.nocookie.net/ptstarwars/images/8/82/Tatooine-TOR.jpg/revision/latest?cb=20160320020409"
     return (
-        <div className="col-md-4 text-center mt-5">
-        
+        <div className="col-md-4 text-center mt-5"  style={{
+      backgroundImage: 'url(https://e0.pxfuel.com/wallpapers/804/170/desktop-wallpaper-star-wars-star-background-best-background-star-wars-universe.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }} >
+
             <div className="card" style={{ width: '18rem' }}>
-                <img src={imagen} onError={(e) => {e.target.src = rigoImageUrl; }} className="card-img-top" alt="..." />
+                <img src={imagen} onError={(e) => { e.target.src = rigoImageUrl; }} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        {/* <navLink to={"/Detalles/"+id} className="btn btn-primary">Go somewhere</navLink> */}
-                        <div className="d-flex justify-content-between">
-                            <Link to={`/detalles/${props.character.uid}`}>
-                                <button className="btn btn-primary">Learn More</button>
-                            </Link>
-                            <button className="btn btn-outline-warning" onClick={addFav}><i class="fa-regular fa-heart"></i></button>
-                        </div>
+                    {properties && (
+                        <>
+                            <p>Altura: {properties.height}</p>
+                            <p>Peso: {properties.mass}</p>
+                            <p>Cabello: {properties.hair_color}</p>
+                            <p>Ojos: {properties.eye_color}</p>
+                        </>
+                    )}
+                    {/* <navLink to={"/Detalles/"+id} className="btn btn-primary">Go somewhere</navLink> */}
+                    <div className="d-flex justify-content-between">
+                        <Link to={`/detalles/${id}`}>
+                            <button className="btn btn-primary">Learn More</button>
+                        </Link>
+                        <button className="btn btn-outline-warning" onClick={addFav}><i class="fa-regular fa-heart"></i></button>
+                    </div>
                 </div>
             </div>
-            
+
         </div>
     );
 }; 

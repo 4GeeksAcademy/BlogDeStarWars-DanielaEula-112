@@ -49,22 +49,22 @@ export const Home = () => {
 		} catch (error) {
 			console.log(error);
 		}
-		
+
 	}
 	console.log("estos son los vehiculos", store.vehicles);
 
 	useEffect(() => {
-		getCharacters(),
-		getPlanets(),
-		getVehicles()
+		getCharacters();
+		getPlanets();
+		getVehicles();
 
 	}, []);
 
 	console.log(characters)
 
 	return (
-		<><div className="card">
-			<div className="card-body bg-dark">
+		<><div className="card border-0"  >
+			<div className="card-body bg-dark" style={{ border: 'none', boxShadow: 'none' }}>
 				<h1 className="card-title font-monospace text-light">CHARACTERS</h1>
 				<div className="row">
 					{store.characters.length == 0 ? (
@@ -72,13 +72,18 @@ export const Home = () => {
 					) : (
 						store.characters.map((item) => (
 							<div className="col-md-4" key={item.uid}>
-								<CardCharacters name={item.name} id={item.uid} url={item.url} />
+								<CardCharacters
+									name={item.name}
+									id={item.uid}
+									url={item.url}
+									properties={item.properties}
+								/>
 							</div>
-							))
-						)}
+						))
+					)}
 				</div>
 			</div>
-		</div><div className="card">
+		</div><div className="card border-0">
 				<div className="card-body bg-dark">
 					<h1 className="card-title font-monospace text-light">PLANETS</h1>
 					<div className="row">
@@ -87,29 +92,37 @@ export const Home = () => {
 						) : (
 							store.planets.map((i) => (
 								<div className="col-md-4" key={i.uid}>
-									<CardCharacters name={i.name} id={i.uid} url={i.url} />
+									<CardCharacters 
+									name={i.name} 
+									id={i.uid} 
+									url={i.url}
+									properties={i.properties} />
 								</div>
-								))	
-							)}
+							))
+						)}
 					</div>
 					<a href="#" className="btn btn-primary">Go somewhere</a>
 				</div>
 			</div>
-			<div className="card">
+			<div className="card border-0">
 				<div className="card-body bg-dark">
 					<h1 className="card-title font-monospace text-light">VEHICLES</h1>
 					<div className="row">
 						{store.vehicles.length == 0 ? (
 							<p>cargando</p>
 						) : (
-						store.vehicles.map((e) => (
+							store.vehicles.map((e) => (
 								<div className="col-md-4" key={e.uid}>
-									<CardCharacters name={e.name} id={e.uid} url={e.url} />
+									<CardCharacters 
+									name={e.name} 
+									id={e.uid} 
+									url={e.url} 
+									properties={e.properties}/>
 								</div>
 							))
 						)}
 					</div>
-					
+
 				</div>
 			</div></>
 
