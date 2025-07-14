@@ -63,7 +63,7 @@ export const Home = () => {
 	console.log(characters)
 
 	return (
-		<><div className="card border-0"  >
+		<><div className="card border-0"   >
 			<div className="card-body bg-dark" style={{ border: 'none', boxShadow: 'none' }}>
 				<h1 className="card-title font-monospace text-light">CHARACTERS</h1>
 				<div className="row">

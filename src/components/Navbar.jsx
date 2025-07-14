@@ -21,7 +21,7 @@ export const Navbar = () => {
     }}>
 			<div className="container d-flex justify-content-between">
 				<div className="d-flex align-items-center">
-					<a className="navbar-brand">
+					<a className="navbar-brand" href="/">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1280px-Star_Wars_Logo.svg.png" style={{ maxWidth: '150px', height: '80px' }} />
 					</a>
 				</div>
