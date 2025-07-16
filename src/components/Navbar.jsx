@@ -32,14 +32,14 @@ export const Navbar = () => {
 					<div className="collapse navbar-collapse m-0" id="navbarNavDarkDropdown">
 						<ul className="navbar-nav">
 							<li className="nav-item dropdown">
-								<a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color: '#FFE81F'}}>
+								<a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{fontSize: '22px', color: '#feda4a', fontFamily: 'Pathway Gothic One, SansSerif'}}>
 									Favoritos ({store.addFav.length})
 								</a>
 								
 								<ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 									{store.addFav.map((fav, index) => (
 										<li className="d-flex justify-content-betwee" key={index}>
-											<a className="dropdown-item" href="#">{fav.name}</a>
+											<a className="dropdown-item" href="/">{fav.name}</a>
 											<button className="btn btn-sm" onClick={() => removeFav(fav.id)}><i class="fa-solid fa-trash"></i></button>
 										</li>
 									))}

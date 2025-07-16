@@ -43,12 +43,13 @@ export const Detalles = () => {
                     </div>
                     <div className="col-md-8">
                         <div className="card-body mt-5">
-                            <h5 className="card-title">{character.name}</h5>
+                            <h2 className="card-title">{character.name}</h2>
+                            <p>Género: {character.gender}</p>
+                            <p>Año de Nacimiento: {character.birth_year}</p>
+                            <p>Ojos: {character.eye_color}</p>
+                            <p>Cabello: {character.hair_color}</p>
                             <p>Altura: {character.height}</p>
                             <p>Peso: {character.mass}</p>
-                            <p>Cabello: {character.hair_color}</p>
-                            <p>Ojos: {character.eye_color}</p>
-                            
                         </div>
                     </div>
                 </div>

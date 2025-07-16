@@ -63,15 +63,15 @@ export const Home = () => {
 	console.log(characters)
 
 	return (
-		<><div className="card border-0"   >
-			<div className="card-body bg-dark" style={{ border: 'none', boxShadow: 'none' }}>
-				<h1 className="card-title font-monospace text-light">CHARACTERS</h1>
-				<div className="row">
+		<><div className="card border-0" >
+			<div className="card-body" style={{ border: 'none', boxShadow: 'none'}}>
+				<h1 className="card-title text-center" style={{color: '#feda4a', fontFamily: 'Pathway Gothic One, SansSerif'}}>CHARACTERS</h1>
+				<div className="row" >
 					{store.characters.length == 0 ? (
 						<p>Cargando</p>
 					) : (
 						store.characters.map((item) => (
-							<div className="col-md-4" key={item.uid}>
+							<div className="col-md-3" key={item.uid} >
 								<CardCharacters
 									name={item.name}
 									id={item.uid}
@@ -84,8 +84,8 @@ export const Home = () => {
 				</div>
 			</div>
 		</div><div className="card border-0">
-				<div className="card-body bg-dark">
-					<h1 className="card-title font-monospace text-light">PLANETS</h1>
+				<div className="card-body" style={{ border: 'none', boxShadow: 'none'}}>
+					<h1 className="card-title text-center" style={{color: '#feda4a', fontFamily: 'Pathway Gothic One, SansSerif'}}>PLANETS</h1>
 					<div className="row">
 						{store.planets.length == 0 ? (
 							<p>cargando</p>
@@ -101,12 +101,11 @@ export const Home = () => {
 							))
 						)}
 					</div>
-					<a href="#" className="btn btn-primary">Go somewhere</a>
 				</div>
 			</div>
 			<div className="card border-0">
-				<div className="card-body bg-dark">
-					<h1 className="card-title font-monospace text-light">VEHICLES</h1>
+				<div className="card-body" style={{ border: 'none', boxShadow: 'none'}}>
+					<h1 className="card-title text-center" style={{color: '#feda4a', fontFamily: 'Pathway Gothic One, SansSerif'}}>VEHICLES</h1>
 					<div className="row">
 						{store.vehicles.length == 0 ? (
 							<p>cargando</p>

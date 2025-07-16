@@ -42,11 +42,12 @@ export const DetailsPlanets = () => {
                     </div>
                     <div className="col-md-8">
                         <div className="card-body mt-5">
-                            <h5 className="card-title">{planets.name}</h5>
-                            <p>Altura: {planets.height}</p>
-                            <p>Peso: {planets.mass}</p>
-                            <p>Cabello: {planets.hair_color}</p>
-                            <p>Ojos: {planets.eye_color}</p>
+                            <h2 className="card-title">{planets.name}</h2>
+                            <p>Clima: {planets.climate}</p>
+                            <p>Órbita: {planets.orbital_period}</p>
+                            <p>Población: {planets.population}</p>
+                            <p>Terreno: {planets.terrain}</p>
+                            <p>Diámettro: {planets.diameter}</p>
                             
                         </div>
                     </div>
