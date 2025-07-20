@@ -11,7 +11,14 @@ export const CardCharacters = ({ name, id, url }) => {
 
 
     function addFav() {
-        dispatch({ type: 'add_fav', payload: { name: name, id: id } })
+        dispatch({
+            type: 'add_fav',
+            payload: { 
+                name: name, 
+                id: id,
+                url: url
+             } 
+        });
     };
 
     function cardImg(url) {

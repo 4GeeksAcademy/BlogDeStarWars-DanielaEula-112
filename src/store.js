@@ -34,8 +34,12 @@ export default function storeReducer(store, action = {}) {
     case 'add_fav':
       return{
         ...store,
-        addFav: [...store.addFav, action.payload]
+        addFav: [...store.addFav, { ...action.payload, type:
+          action.payload.url.includes('people') ? 'personaje' :
+          action.payload.url.includes('planets') ? 'planeta' : 'vehiculo'
+        }]
       };
+      // 
 
     case 'remove_fav':
       return{

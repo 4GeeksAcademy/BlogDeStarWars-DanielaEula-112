@@ -39,7 +39,9 @@ export const Navbar = () => {
 								<ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 									{store.addFav.map((fav, index) => (
 										<li className="d-flex justify-content-betwee" key={index}>
-											<a className="dropdown-item" href="/">{fav.name}</a>
+											<Link className="dropdown-item" to={`/${fav.type === 'personaje' ? 'detalles' :
+												fav.type === 'planeta' ? 'detailsplanets' : 'detailsvehicles'}/${fav.id}`}
+											>{fav.name}</Link>
 											<button className="btn btn-sm" onClick={() => removeFav(fav.id)}><i class="fa-solid fa-trash"></i></button>
 										</li>
 									))}
